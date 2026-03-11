@@ -1,0 +1,15 @@
+# IDE folders
+.idea/
+.vscode/
+.metadata/
+
+# Eclipse files
+*.log
+*.lock
+
+# Compiled files
+*.class
+
+# OS files
+.DS_Store
+Thumbs.db
