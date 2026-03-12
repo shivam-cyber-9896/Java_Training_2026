@@ -1,56 +1,72 @@
 package com.shivam.monocept.Game;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class PigDiceGame {
+
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
+        try (Scanner scanner = new Scanner(System.in)) {
 
-        int playerScore = 0;
-        int winningScore = 20;
+            Random random = new Random();
 
-        System.out.println("Welcome to Pig Dice Game!");
-        System.out.println("Reach " + winningScore + " points to win.");
+            int playerScore = 0;
+            int winningScore = 20;
 
-        while (playerScore < winningScore) {
+            System.out.println("Welcome to Pig Dice Game!");
+            System.out.println("Reach " + winningScore + " points to win.");
 
-            System.out.println("\nCurrent Score: " + playerScore);
-            int turnTotal = 0;
-            boolean turnOver = false;
+            while (playerScore < winningScore) {
 
-            while (!turnOver) {
-                System.out.print("Roll or hold? (r/h): ");
-                String choice = scanner.next();
+                System.out.println("\nCurrent Score: " + playerScore);
 
-                if (choice.equalsIgnoreCase("r")) {
-                    int roll = random.nextInt(6) + 1;
-                    System.out.println("You rolled: " + roll);
+                int turnTotal = 0;
+                boolean turnOver = false;
 
-                    if (roll == 1) {
-                        System.out.println("Oops! You rolled 1. Turn over, no points added.");
-                        turnTotal = 0;
-                        turnOver = true;
-                    } else {
-                        turnTotal += roll;
-                        System.out.println("Turn total: " + turnTotal);
+                while (!turnOver) {
+
+                    System.out.print("Roll or hold? (r/h): ");
+                    String choice = scanner.next();
+
+                    if (!choice.equalsIgnoreCase("r") && !choice.equalsIgnoreCase("h")) {
+                        System.out.println("Invalid choice! Type 'r' to roll or 'h' to hold.");
+                        continue;
                     }
 
-                } else if (choice.equalsIgnoreCase("h")) {
+                    if (choice.equalsIgnoreCase("r")) {
+
+                        int roll = random.nextInt(6) + 1;
+                        System.out.println("You rolled: " + roll);
+
+                        if (roll == 1) {
+                            System.out.println("Oops! You rolled 1. Turn over, no points added.");
+                            turnTotal = 0;
+                            turnOver = true;
+                            continue;
+                        }
+
+                        turnTotal += roll;
+                        System.out.println("Turn total: " + turnTotal);
+                        continue;
+                    }
+
                     playerScore += turnTotal;
                     System.out.println("You hold. Total score: " + playerScore);
                     turnOver = true;
-
-                } else {
-                    System.out.println("Invalid choice! Type 'r' to roll or 'h' to hold.");
                 }
             }
+
+            System.out.println("\n Congratulations! You reached " + playerScore + " Score");
+
+        } catch (InputMismatchException e) {
+
+            System.out.println("Please give a valid input.");
+
+        } catch (Exception e) {
+
+            System.out.println("Unexpected Exception: " + e);
         }
-
-        System.out.println("\n🎉 Congratulations! You reached " + playerScore + " points and won!");
-
-        scanner.close();
     }
 }
