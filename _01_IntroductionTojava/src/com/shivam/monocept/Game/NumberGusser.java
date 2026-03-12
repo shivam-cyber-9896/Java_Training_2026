@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class NumberGusser  {
-    public static void main(String[] args) {
+    public void Start() {
         try (Scanner scanner = new Scanner(System.in)) {
 			int lowerBound = 1;
 			int upperBound = 100;
