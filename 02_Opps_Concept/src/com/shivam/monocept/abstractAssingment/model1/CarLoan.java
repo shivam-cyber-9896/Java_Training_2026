@@ -1,7 +1,16 @@
 package com.shivam.monocept.abstractAssingment.model1;
 
+import java.util.Objects;
 
 public class CarLoan extends Loan implements LoanEligibility {
+	@Override
+	public int hashCode() {
+		return Objects.hash(years);
+	}
+
+
+	
+
 	int years;
     public CarLoan(String name, double amount, double rate,int years)
             throws InvalidLoanException {
