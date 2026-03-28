@@ -1,15 +1,16 @@
-package com.shivam.monocept.game.model1;
+package com.shivam.monocept.game.model1.controller;
 
 import java.util.Scanner;
 
 import com.shivam.monocept.game.model1.board.Board;
 import com.shivam.monocept.game.model1.board.BoardFullChecker;
 import com.shivam.monocept.game.model1.board.BoardPrinter;
-import com.shivam.monocept.game.model1.exception.InvaildSudokuExcption;
+import com.shivam.monocept.game.model1.exception.InvaildSudokuException;
+
+import com.shivam.monocept.game.model1.generator.ComputerSudokuGenerator;
+import com.shivam.monocept.game.model1.generator.EmptySudokuGenerator;
 import com.shivam.monocept.game.model1.input.InputChecker;
 import com.shivam.monocept.game.model1.input.InputHandler;
-import com.shivam.monocept.game.model1.typeChoser.ComputerSudokuGenerator;
-import com.shivam.monocept.game.model1.typeChoser.EmptySudokuGenerator;
 import com.shivam.monocept.game.model1.vaildator.SudokuValidator;
 
 public class GameController {
@@ -57,7 +58,7 @@ public class GameController {
             } 
              if(choice==3)
              {
-            	 Rules.showrules();
+            	 Rules.showRules();
             	 startGame();
              }
         playGame();
@@ -78,7 +79,7 @@ public class GameController {
 				    System.out.println("Invalid Number! Enter 1-9");
 				    continue;
 				}
-			} catch (InvaildSudokuExcption e) {
+			} catch (InvaildSudokuException e) {
 				e.printStackTrace();
 			}
 

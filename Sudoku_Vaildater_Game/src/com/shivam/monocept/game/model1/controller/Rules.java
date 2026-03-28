@@ -1,7 +1,7 @@
-package com.shivam.monocept.game.model1;
+package com.shivam.monocept.game.model1.controller;
 
 public class Rules {
- static void showrules() {
+ static void showRules() {
 	 
 	 System.out.println("====== SUDOKU RULES ======\n");
 	 System.out.println("1. The Sudoku grid is 9 x 9.");

@@ -1,6 +1,6 @@
 package com.shivam.monocept.game.test;
 
-import com.shivam.monocept.game.model1.GameController;
+import com.shivam.monocept.game.model1.controller.GameController;
 
 public class SudokuApp {
 

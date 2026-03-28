@@ -1,4 +1,4 @@
-package com.shivam.monocept.game.model1.typeChoser;
+package com.shivam.monocept.game.model1.generator;
 
 
 

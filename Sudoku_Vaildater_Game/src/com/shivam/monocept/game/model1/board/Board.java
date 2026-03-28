@@ -3,7 +3,8 @@ package com.shivam.monocept.game.model1.board;
 
 public class Board {
 
-    private int[][] grid = new int[9][9];
+	private static final int SIZE = 9;
+	private int[][] grid = new int[SIZE][SIZE];
 
     public int[][] getGrid() {
         return grid;

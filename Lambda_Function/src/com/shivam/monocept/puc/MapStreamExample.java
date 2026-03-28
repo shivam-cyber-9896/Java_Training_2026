@@ -10,7 +10,7 @@ public class MapStreamExample {
 Map<String ,Integer> details=Map.of("java",100,"Python",123);
 Stream<String> Name=details.keySet().stream();
 Name.forEachOrdered(System.out::println);
-Stream <Integer> Value=details.values().stream();
+Stream <Integer> Value=details.values().stream().dropWhile();
 Value.forEach(System.out::println);
 
 Stream<Map.Entry<String, Integer>> map=details.entrySet().stream();
