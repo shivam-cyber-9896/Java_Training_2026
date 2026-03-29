@@ -1,67 +1,45 @@
 package com.shivam.monocept.game.model1.generator;
 
-
-
 import java.util.Random;
-import java.util.Scanner;
 
 import com.shivam.monocept.game.model1.board.Board;
 import com.shivam.monocept.game.model1.vaildator.SudokuValidator;
 
-public class ComputerSudokuGenerator {
+public class ComputerSudokuGenerator implements SudokuGenerator {
 
-	public void generateBoard(Board board) {
-	int choice=	chooseDifficulty();
+    private static final int SIZE = 9;
 
-	    Random random = new Random();
-	    int[][] grid = board.getGrid();
-	    SudokuValidator validator = new SudokuValidator();
+    private int filledCells;
+    private SudokuValidator validator;
 
-	    int count = 0;
-
-	    while (count < choice) {
-
-	        int row = random.nextInt(9);
-	        int col = random.nextInt(9);
-	        int num = random.nextInt(9) + 1;
-
-	        if (grid[row][col] == 0 && validator.isValidMove(board, row, col, num)) {
-
-	            grid[row][col] = num;
-	            count++;
-	        }
-	    }
-	}
-
-	private int chooseDifficulty() {
-
-	    Scanner scanner = new Scanner(System.in);
-
-	    System.out.println("What difficulty do you want?");
-	    System.out.println("1. Easy");
-	    System.out.println("2. Medium");
-	    System.out.println("3. Hard");
-
-	    String type = scanner.nextLine();
-
-	    while(type.trim().isEmpty() || !type.matches("^[1-3]$")) {
-	        System.out.println("Enter Valid Difficulty");
-	        System.out.println("1. Easy");
-	        System.out.println("2. Medium");
-	        System.out.println("3. Hard");
-
-	        type = scanner.nextLine();
-	    }
-	    type="40";
-         if(type.equals("1"))
-         {
-        	 type="80";
-         }
-         if(type.equals("2"))
-         {
-        	 type="60";
-         }
-         
-	    return Integer.parseInt(type);
-	}
+    public ComputerSudokuGenerator(int filledCells, SudokuValidator validator) {
+        this.filledCells = filledCells;
+        this.validator = validator;
     }
+
+    @Override
+    public void generate(Board board) {
+
+        Random random = new Random();
+
+        int count = 0;
+        int attempts = 0;
+        int maxAttempts = 1000;
+
+        while (count < filledCells && attempts < maxAttempts) {
+
+            int row = random.nextInt(SIZE);
+            int col = random.nextInt(SIZE);
+            int num = random.nextInt(SIZE) + 1;
+
+            if (board.isEmpty(row, col) &&
+                validator.isValidMove(board, row, col, num)) {
+
+                board.setFixedValue(row, col, num);
+                count++;
+            }
+
+            attempts++;
+        }
+    }
+}

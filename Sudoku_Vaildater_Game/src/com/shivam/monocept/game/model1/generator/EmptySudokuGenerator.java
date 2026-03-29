@@ -2,17 +2,17 @@ package com.shivam.monocept.game.model1.generator;
 
 import com.shivam.monocept.game.model1.board.Board;
 
-public class EmptySudokuGenerator {
+public class EmptySudokuGenerator implements SudokuGenerator {
 
-    public void generateEmptyBoard(Board board) {
+    @Override
+    public void generate(Board board) {
 
-        int[][] grid = board.getGrid();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
 
-        for(int i=0;i<9;i++) {
-            for(int j=0;j<9;j++) {
-
-                grid[i][j]=0;
-
+                if (!board.isFixed(i, j)) { // safe check
+                    board.clearCell(i, j);
+                }
             }
         }
     }

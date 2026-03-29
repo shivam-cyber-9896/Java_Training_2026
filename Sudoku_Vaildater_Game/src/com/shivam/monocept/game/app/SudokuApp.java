@@ -1,4 +1,4 @@
-package com.shivam.monocept.game.test;
+package com.shivam.monocept.game.app;
 
 import com.shivam.monocept.game.model1.controller.GameController;
 

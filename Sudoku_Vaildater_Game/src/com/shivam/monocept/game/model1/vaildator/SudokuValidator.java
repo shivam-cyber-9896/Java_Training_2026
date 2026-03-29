@@ -1,17 +1,29 @@
 package com.shivam.monocept.game.model1.vaildator;
 
+import java.util.List;
+
 import com.shivam.monocept.game.model1.board.Board;
 
 public class SudokuValidator {
 
-    RowAndColumnChecker Checker = new  RowAndColumnChecker();
-    
-    BoxChecker boxChecker = new BoxChecker();
+    private List<Validator> validators;
 
-    public boolean isValidMove(Board board,int row,int col,int num) {
+    public SudokuValidator() {
+        validators = List.of(
+            new RowValidator(),
+            new ColumnValidator(),
+            new BoxValidator()
+        );
+    }
 
-        return Checker.checkRow(board,row,num) &&
-               Checker.checkColumn(board,col,num) &&
-               boxChecker.checkBox(board,row,col,num);
+    public boolean isValidMove(Board board, int row, int col, int number) {
+
+        for (Validator validator : validators) {
+            if (!validator.isValid(board, row, col, number)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

@@ -2,16 +2,15 @@ package com.shivam.monocept.game.model1.board;
 
 public class BoardPrinter {
 
+    private static final int SIZE = 9;
+
     public void printBoard(Board board) {
 
-        int[][] grid = board.getGrid();
+        for (int i = 0; i < SIZE; i++) {
 
-        for(int i=0;i<9;i++) {
+            for (int j = 0; j < SIZE; j++) {
 
-            for(int j=0;j<9;j++) {
-
-                System.out.print(grid[i][j] + " ");
-
+                System.out.print(board.getValue(i, j) + " ");
             }
 
             System.out.println();

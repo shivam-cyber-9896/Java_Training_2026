@@ -11,4 +11,6 @@ public class InputChecker {
         throw new InvaildSudokuException("Invaild Input"); 
 
     }
+
+	
 }
