@@ -10,13 +10,7 @@ public class MultiplayRunner {
 		int a=scanner.nextInt();
 		System.out.println("Enter a value b");
 		int b =scanner.nextInt();
-		Multiply mult=new Multiply() {
-
-			public int operation(int a, int b) {
-				return a*b;
-			}
-			
-		};
+		Multiply mult=(x,c)->x*c;
 		System.out.println("Result of fuctional interface "+mult.operation(a, b));
 	}
 
