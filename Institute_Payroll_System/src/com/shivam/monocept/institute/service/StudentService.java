@@ -63,7 +63,7 @@ public class StudentService {
 					int branchId = 0;
 					String branch;
 					while (true) {
-						branchId = input.branchInput(scanner);
+						branchId = input.IntegerInput(scanner);
 						if (vaild.branchExists(branchId))
 							break;
 						read.showBranches();
@@ -87,7 +87,7 @@ public class StudentService {
 					System.out.print("Enter Course No: ");
 					int courseID;
 					while (true) {
-						courseID = input.branchInput(scanner);
+						courseID = input.IntegerInput(scanner);
 						if (vaild.courseExists(courseID))
 							break;
 						read.showCoursesByBranch(brenchId);
@@ -124,7 +124,7 @@ public class StudentService {
 					System.out.print("Enter New Branch: ");
 					 int newBranch;
 					 while (true) {
-						 newBranch = input.branchInput(scanner);
+						 newBranch = input.IntegerInput(scanner);
 							if (vaild.branchExists(newBranch))
 								break;
 							read.showBranches();

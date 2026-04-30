@@ -64,7 +64,7 @@ public class Inputhandler {
             System.out.println("Invalid ID (must be positive integer)");
         }
     }
-    public int branchInput(Scanner scanner) {
+    public int IntegerInput(Scanner scanner) {
         while (true) {
            
             String branch = scanner.nextLine();
@@ -77,7 +77,7 @@ public class Inputhandler {
                if(branch.matches("\\d+"))
                  return Integer.parseInt(branch) ;
                  
-                    System.out.println("Invalid only brench numbers allowed)");
+                    System.out.println("Invalid only Integer numbers allowed)");
                 
 
             } else {

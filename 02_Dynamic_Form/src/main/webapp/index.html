@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Registration</title> 
+<style> body { font-family: Arial; background: linear-gradient(to right, #667eea, #764ba2); } .container { width: 400px; margin: 60px auto; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2); } h2 { text-align: center; margin-bottom: 20px; } label { font-weight: bold; } input, select { width: 100%; padding: 10px; margin: 8px 0 15px; border-radius: 6px; border: 1px solid #ccc; } button { width: 100%; padding: 12px; background: #667eea; color: white; border: none; font-size: 16px; border-radius: 6px; cursor: pointer; } button:hover { background: #5a67d8; }
+ </style> 
+ </head> 
+ <body> 
+ <div class="container"> 
+ <h2>Student Registration Form</h2> 
+ <form action="show" method="post"> 
+ <label>Name:</label> 
+ <input type="text" name="name" placeholder="Enter your name" required> 
+ <label>Age:</label> <input type="number" name="age" placeholder="Enter your age" required> 
+ <label>Class:</label> <input type="text" name="class" placeholder="Enter your class" required> 
+ <label>Percentage:</label> <input type="number" name="percentage" step="0.01" placeholder="Enter percentage" required> 
+ <label>Branch:</label> <select name="branch" required> <option value="">-- Select Branch --</option> 
+ <option value="CSE">Computer Science Engineering (CSE)</option> 
+ <option value="IT">Information Technology (IT)</option> 
+ <option value="ECE">Electronics & Communication (ECE)</option> 
+ <option value="EEE">Electrical Engineering (EEE)</option> <option value="ME">Mechanical Engineering (ME)</option> 
+ <option value="CE">Civil Engineering (CE)</option> <option value="AI">Artificial Intelligence (AI)</option>
+  <option value="DS">Data Science (DS)</option> </select> 
+  <button type="submit">Register</button> 
+  </form> 
+  </div> 
+  </body>
+</html>
