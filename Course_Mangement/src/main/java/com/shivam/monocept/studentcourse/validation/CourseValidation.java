@@ -11,7 +11,7 @@ public class CourseValidation {
 
         // COURSE NAME
         if(courseName == null ||
-           courseName.trim().isEmpty()) {
+           courseName.trim().isEmpty()||!courseName.matches("^[A-Za-z ]+$")) {
 
             return "Course Name Cannot Be Empty";
         }
@@ -23,7 +23,7 @@ public class CourseValidation {
 
         // DURATION
         if(duration == null ||
-           duration.trim().isEmpty()) {
+           duration.trim().isEmpty()|| !duration.matches("^(\\d+\\s(year|years)(\\s\\d+\\s(month|months))?|\\d+\\s(month|months))$") ) {
 
             return "Duration Cannot Be Empty";
         }
@@ -36,7 +36,7 @@ public class CourseValidation {
 
         // TRAINER NAME
         if(trainerName == null ||
-           trainerName.trim().isEmpty()) {
+           trainerName.trim().isEmpty()|| !trainerName.matches("^[A-Za-z ]+$")) {
 
             return "Trainer Name Cannot Be Empty";
         }

@@ -39,12 +39,31 @@ h2{
     color:#1e3c72;
 }
 
-input{
+input,
+.dropdown{
     width:100%;
     padding:12px;
     margin:10px 0;
     border:1px solid #ccc;
     border-radius:8px;
+    font-size:15px;
+    background:white;
+}
+
+input:focus,
+.dropdown:focus{
+    border-color:#007bff;
+    outline:none;
+    box-shadow:0 0 8px rgba(0,123,255,0.4);
+}
+
+input[type="date"]{
+    cursor:pointer;
+}
+
+.dropdown{
+    cursor:pointer;
+    transition:0.3s;
 }
 
 button{
@@ -56,6 +75,8 @@ button{
     border-radius:8px;
     font-size:16px;
     cursor:pointer;
+    margin-top:10px;
+    transition:0.3s;
 }
 
 button:hover{
@@ -80,6 +101,11 @@ button:hover{
     color:white;
     padding:12px;
     border-radius:8px;
+    transition:0.3s;
+}
+
+.back:hover{
+    background:#1e7e34;
 }
 
 </style>
@@ -123,9 +149,13 @@ if(error != null){
 
 <input type="date"
        name="registrationDate"
+       value="<%= java.time.LocalDate.now() %>"
+       min="<%= java.time.LocalDate.now() %>"
        required>
 
-<select name="status" required>
+<select name="status"
+        class="dropdown"
+        required>
 
     <option value="">
         Select Status
